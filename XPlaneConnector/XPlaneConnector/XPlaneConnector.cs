@@ -108,7 +108,7 @@ namespace XPlaneConnector
         {
             if (client != null)
             {
-                foreach (var dr in DataRefs)
+                foreach (var dr in DataRefs.ToList())
                     Unsubscribe(dr.DataRef);
 
                 if (ts != null)
@@ -281,7 +281,7 @@ namespace XPlaneConnector
         {
             var dr_list = DataRefs.Where(d => d.DataRef == dataref).ToArray();
 
-            foreach(var dr in dr_list)
+            foreach (var dr in dr_list)
             {
                 var dg = new XPDatagram();
                 dg.Add("RREF");
